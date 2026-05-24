@@ -1,6 +1,6 @@
 # Submission Brief
 
-Status: local public-release candidate, not submitted
+Status: public repository published, Tether application not submitted
 License: Apache-2.0
 Repository: https://github.com/kei99-web3/wdk-merchant-checkout-ops-kit
 
