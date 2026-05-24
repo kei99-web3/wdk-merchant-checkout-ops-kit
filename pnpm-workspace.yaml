@@ -1,0 +1,4 @@
+packages:
+  - .
+overrides:
+  ws: 8.20.1

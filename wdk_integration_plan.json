@@ -1,0 +1,54 @@
+{
+  "phase": "wdk_implementation_prep_only",
+  "activationStatus": "blocked_until_explicit_user_approval",
+  "packageBoundary": {
+    "core": "@tetherto/wdk@1.0.0-beta.9",
+    "evmWallet": "@tetherto/wdk-wallet-evm@1.0.0-beta.12",
+    "adapter": "real_wdk_adapter.mjs",
+    "browserLoaded": false
+  },
+  "approvalRequiredBeforeActivation": [
+    "wallet handling",
+    "mnemonic or seed source handling",
+    "provider or RPC selection",
+    "testnet or mainnet selection",
+    "transaction signing",
+    "transaction broadcast",
+    "audit review of dependency findings"
+  ],
+  "knownPreActivationFindings": [
+    "npm audit reported 3 moderate findings via @tetherto/wdk-wallet-evm -> ethers -> ws; review or re-audit before real WDK activation"
+  ],
+  "productionFlowMapping": [
+    {
+      "step": "order_created",
+      "productionOwner": "EC system",
+      "demoControl": "create-intent",
+      "wdkBoundary": "before WDK; creates payment intent input"
+    },
+    {
+      "step": "payment_method_selected",
+      "productionOwner": "buyer + WDK",
+      "demoControl": "select-account",
+      "wdkBoundary": "getAccount"
+    },
+    {
+      "step": "payment_quoted",
+      "productionOwner": "WDK or payment service",
+      "demoControl": "quote-payment",
+      "wdkBoundary": "quotePayment"
+    },
+    {
+      "step": "payment_approved_submitted",
+      "productionOwner": "buyer + WDK",
+      "demoControl": "approve-payment",
+      "wdkBoundary": "requestUserApproval + submitPayment"
+    },
+    {
+      "step": "merchant_release_decision",
+      "productionOwner": "AI recommendation + human merchant operator",
+      "demoControl": "simulate-confirm",
+      "wdkBoundary": "watchConfirmation + merchant release lock"
+    }
+  ]
+}

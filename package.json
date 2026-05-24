@@ -1,0 +1,22 @@
+{
+  "name": "wdk-merchant-checkout-ops-kit-demo",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Mock-first WDK ecommerce checkout operations reference kit with approval-gated real WDK Sepolia proof.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test:state": "node tests/state_machine.test.js",
+    "test:offline": "node tests/offline_guard.test.js",
+    "test:browser": "node tests/browser_smoke.test.js",
+    "test:wdk-boundary": "node tests/real_wdk_boundary.test.js",
+    "test:wdk-import": "node tests/wdk_import_preflight.test.mjs",
+    "wdk:phase2:testnet": "node scripts/wdk_phase2_testnet.mjs"
+  },
+  "dependencies": {
+    "@tetherto/wdk": "1.0.0-beta.9",
+    "@tetherto/wdk-wallet-evm": "1.0.0-beta.12"
+  },
+  "overrides": {
+    "ws": "8.20.1"
+  }
+}

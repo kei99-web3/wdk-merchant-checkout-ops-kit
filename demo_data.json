@@ -1,0 +1,27 @@
+{
+  "merchant": {
+    "name": "North Pier Outfitters",
+    "storeId": "merchant_demo_001",
+    "settlementAsset": "USDt",
+    "network": "Mock EVM",
+    "releasePolicy": "Release fulfillment only after confirmed payment and reconciliation match."
+  },
+  "cart": [
+    {
+      "sku": "NPO-JKT-01",
+      "name": "Stormshell Field Jacket",
+      "quantity": 1,
+      "unitPrice": 128
+    },
+    {
+      "sku": "NPO-PCK-02",
+      "name": "Dry Pack Insert",
+      "quantity": 2,
+      "unitPrice": 16
+    }
+  ],
+  "fees": {
+    "shipping": 12,
+    "tax": 13.6
+  }
+}
