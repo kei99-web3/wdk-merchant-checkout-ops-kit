@@ -10,13 +10,15 @@ Target bounty: Tether Developer Grants, WDK in eCommerce.
 
 The bounty asks for a reference implementation showing how WDK can support ecommerce checkout flows, payment confirmations, and embedded wallet experiences.
 
-This project focuses on the merchant operations gap behind those words: not just a crypto checkout button, but a flow that helps a merchant move safely from order billing to wallet approval, payment confirmation, reconciliation, and fulfillment release.
+This project focuses on the merchant operations gap behind those words: not just a crypto checkout button, but a flow that helps a merchant move safely from order billing to wallet approval, payment confirmation, reconciliation, and fulfillment release. It is also designed with in-person storefront use in mind: a staff member should be able to check status from a smartphone and make a simple release/hold decision without understanding wallet internals.
 
 ## Core Differentiator
 
 Not just a crypto checkout button, but a merchant operations reference kit for payment confirmation, reconciliation, and fulfillment release.
 
 The project puts the merchant-side operating problem first: after a buyer approves a payment, the merchant still needs evidence, confirmation, reconciliation, anomaly handling, and a safe release decision before fulfilling the order.
+
+A secondary design principle is phone-first usability for real stores. The intended operator is not necessarily a crypto-native developer; it may be a cashier, store owner, or support staff member who needs a clear "confirmed and matched" signal before handing over goods.
 
 ## WDK Mapping
 

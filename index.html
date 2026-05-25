@@ -12,10 +12,11 @@
       <div class="topbar-inner">
         <div class="title-block">
           <h1>WDK Merchant Checkout Ops Kit</h1>
-          <p>Mock-only reference flow for embedded wallet checkout, confirmation, reconciliation, and fulfillment release.</p>
+          <p>Mock-only reference flow for embedded wallet checkout, confirmation, reconciliation, and fulfillment release, designed so a store operator can check payment status from a phone.</p>
         </div>
         <div class="status-pills">
           <span class="pill ok">Local demo</span>
+          <span class="pill ok">Mobile operator</span>
           <span class="pill warn">Mock WDK</span>
           <span class="pill block">No wallet / no testnet / no transaction</span>
         </div>
@@ -117,6 +118,35 @@
       </section>
 
       <section class="column">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Storefront mobile operator</h2>
+            <span class="pill ok">Phone-first</span>
+          </div>
+          <div class="panel-body">
+            <div class="operator-note">
+              A shop staff member should be able to confirm payment and release goods from a phone without understanding wallets, RPCs, or block explorers.
+            </div>
+            <div class="summary-grid operator-grid">
+              <div class="metric">
+                <span>Who</span>
+                <strong>Any cashier</strong>
+                <small>Clear next action, no crypto jargon.</small>
+              </div>
+              <div class="metric">
+                <span>Device</span>
+                <strong>Smartphone</strong>
+                <small>Designed for quick in-store checks.</small>
+              </div>
+              <div class="metric">
+                <span>Decision</span>
+                <strong>Release / hold</strong>
+                <small>Only after confirmation and reconciliation pass.</small>
+              </div>
+            </div>
+          </div>
+        </article>
+
         <article class="panel">
           <div class="panel-header">
             <h2>Merchant release lock</h2>

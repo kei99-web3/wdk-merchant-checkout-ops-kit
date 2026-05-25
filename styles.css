@@ -407,6 +407,21 @@ button:disabled {
   font-size: 14px;
 }
 
+.operator-note {
+  border: 1px solid #b8dfcb;
+  background: var(--ok-bg);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--ok);
+  font-size: 14px;
+  font-weight: 750;
+  margin-bottom: 12px;
+}
+
+.operator-grid .metric strong {
+  font-size: 20px;
+}
+
 .release-ready {
   color: var(--ok);
   font-weight: 800;

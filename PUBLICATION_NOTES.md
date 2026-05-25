@@ -14,6 +14,7 @@ It focuses on merchant checkout operations:
 - payment confirmation
 - reconciliation
 - fulfillment release lock
+- phone-first status checks for in-person store operators
 - real-WDK Sepolia proof as a separate testnet script
 
 ## Safety

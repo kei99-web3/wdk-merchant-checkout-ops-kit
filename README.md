@@ -10,9 +10,14 @@ This package demonstrates an ecommerce checkout operations flow around:
 - transaction submit boundary
 - confirmation watcher simulation
 - merchant reconciliation and fulfillment release lock
+- phone-first storefront operator checks
 - optional real-WDK Sepolia proof path
 
 For the submission story, see `SUBMISSION_BRIEF.md`.
+
+## Design Principle
+
+The project treats WDK adoption as an operator workflow, not just a developer integration. A small shop or in-person merchant should be able to check a payment from a smartphone, see a simple release/hold recommendation, and hand over goods only after payment confirmation and reconciliation pass. The interface intentionally avoids exposing staff to wallet internals, RPC details, or block explorer interpretation during normal use.
 
 ## Current Status
 
