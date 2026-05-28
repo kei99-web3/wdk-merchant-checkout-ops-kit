@@ -14,10 +14,10 @@
     "testnet or mainnet selection",
     "transaction signing",
     "transaction broadcast",
-    "audit review of dependency findings"
+    "dependency re-audit before production activation"
   ],
   "knownPreActivationFindings": [
-    "npm audit reported 3 moderate findings via @tetherto/wdk-wallet-evm -> ethers -> ws; review or re-audit before real WDK activation"
+    "Resolved for the candidate package: pnpm override pins ws@8.20.1 and corepack pnpm audit --prod --json reports 0 vulnerabilities. Re-audit before any production activation."
   ],
   "productionFlowMapping": [
     {

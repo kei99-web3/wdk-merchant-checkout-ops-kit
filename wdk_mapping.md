@@ -26,4 +26,4 @@ Passing all six mapping tests is required before any application discussion.
 
 `tests/real_wdk_boundary.test.js` verifies that this boundary stays lazy-loaded, approval-gated, and disconnected from the browser demo.
 
-This is the furthest safe local integration step before user approval because real WDK initialization requires mnemonic/seed handling and provider/RPC configuration, and the normal next steps can lead to wallet, testnet, and transaction behavior. The current npm audit also reports moderate transitive dependency findings that should be reviewed before any real activation.
+This boundary remains approval-gated because real WDK initialization requires mnemonic/seed handling and provider/RPC configuration, and the normal next steps can lead to wallet, testnet, and transaction behavior. The candidate now uses a pnpm override for the transitive `ws` dependency; `corepack pnpm audit --prod --json` reports 0 vulnerabilities after the override.
