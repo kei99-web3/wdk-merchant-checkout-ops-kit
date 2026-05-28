@@ -66,6 +66,18 @@
     fulfillmentState: document.getElementById("fulfillment-state"),
     fulfillmentMeta: document.getElementById("fulfillment-meta"),
     releasePill: document.getElementById("release-pill"),
+    evidencePayment: document.getElementById("evidence-payment"),
+    evidencePaymentBadge: document.getElementById("evidence-payment-badge"),
+    evidencePaymentTitle: document.getElementById("evidence-payment-title"),
+    evidencePaymentDetail: document.getElementById("evidence-payment-detail"),
+    evidenceMatch: document.getElementById("evidence-match"),
+    evidenceMatchBadge: document.getElementById("evidence-match-badge"),
+    evidenceMatchTitle: document.getElementById("evidence-match-title"),
+    evidenceMatchDetail: document.getElementById("evidence-match-detail"),
+    evidenceReceipt: document.getElementById("evidence-receipt"),
+    evidenceReceiptBadge: document.getElementById("evidence-receipt-badge"),
+    evidenceReceiptTitle: document.getElementById("evidence-receipt-title"),
+    evidenceReceiptDetail: document.getElementById("evidence-receipt-detail"),
     riskState: document.getElementById("risk-state"),
     riskMeta: document.getElementById("risk-meta"),
     orderRows: document.getElementById("order-rows"),
@@ -308,6 +320,48 @@
     dom.releasePill.className = app.releaseLocked ? "pill block" : "pill ok";
     dom.riskState.textContent = app.risk;
     dom.riskMeta.textContent = app.intent ? "Local-only risk signal" : "Mock-only checks";
+    renderReleaseEvidence();
+  }
+
+  function setEvidence(card, badge, titleNode, detailNode, title, detail, statusClass) {
+    card.className = `evidence-card ${statusClass}`;
+    badge.textContent = statusClass === "ok" ? "OK" : statusClass === "review" ? "Review" : "Waiting";
+    titleNode.textContent = title;
+    detailNode.textContent = detail;
+  }
+
+  function renderReleaseEvidence() {
+    const amount = app.intent ? formatMoney(app.intent.amount) : formatMoney(cartTotal());
+    const orderRef = app.intent ? `${app.intent.orderId} / ${amount}` : `No order / ${amount}`;
+    const terminalReview = app.intent && !stateOrder.includes(app.intent.state);
+    const confirmed = app.intent && app.intent.state === PAYMENT_STATES.CONFIRMED && app.confirmation?.status === PAYMENT_STATES.CONFIRMED;
+    const matched = confirmed && app.reconciliation === "matched";
+    const receipt = app.confirmation?.paymentHash || app.payment?.paymentHash;
+    const shortReceipt = receipt ? `${receipt.slice(0, 10)}...${receipt.slice(-6)}` : "No transaction evidence yet";
+
+    if (confirmed) {
+      setEvidence(dom.evidencePayment, dom.evidencePaymentBadge, dom.evidencePaymentTitle, dom.evidencePaymentDetail, "Confirmed", `${app.confirmation.confirmations} confirmations observed`, "ok");
+    } else if (terminalReview) {
+      setEvidence(dom.evidencePayment, dom.evidencePaymentBadge, dom.evidencePaymentTitle, dom.evidencePaymentDetail, "Needs review", `Payment state: ${app.intent.state}`, "review");
+    } else {
+      setEvidence(dom.evidencePayment, dom.evidencePaymentBadge, dom.evidencePaymentTitle, dom.evidencePaymentDetail, "Not confirmed", app.payment ? "Waiting for confirmation watcher" : "No payment confirmation yet", "pending");
+    }
+
+    if (matched) {
+      setEvidence(dom.evidenceMatch, dom.evidenceMatchBadge, dom.evidenceMatchTitle, dom.evidenceMatchDetail, "Order ID / amount match", orderRef, "ok");
+    } else if (terminalReview) {
+      setEvidence(dom.evidenceMatch, dom.evidenceMatchBadge, dom.evidenceMatchTitle, dom.evidenceMatchDetail, "Mismatch or exception", orderRef, "review");
+    } else {
+      setEvidence(dom.evidenceMatch, dom.evidenceMatchBadge, dom.evidenceMatchTitle, dom.evidenceMatchDetail, app.intent ? "Order visible" : "Not matched", orderRef, "pending");
+    }
+
+    if (confirmed && receipt) {
+      setEvidence(dom.evidenceReceipt, dom.evidenceReceiptBadge, dom.evidenceReceiptTitle, dom.evidenceReceiptDetail, "Receipt available", `tx: ${shortReceipt}`, "ok");
+    } else if (terminalReview) {
+      setEvidence(dom.evidenceReceipt, dom.evidenceReceiptBadge, dom.evidenceReceiptTitle, dom.evidenceReceiptDetail, "Receipt review", shortReceipt, "review");
+    } else {
+      setEvidence(dom.evidenceReceipt, dom.evidenceReceiptBadge, dom.evidenceReceiptTitle, dom.evidenceReceiptDetail, "No receipt", "Transaction evidence appears after confirmation", "pending");
+    }
   }
 
   function renderControls() {

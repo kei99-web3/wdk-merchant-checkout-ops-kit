@@ -18,7 +18,7 @@ Not just a crypto checkout button, but a merchant operations reference kit for p
 
 The project puts the merchant-side operating problem first: after a buyer approves a payment, the merchant still needs evidence, confirmation, reconciliation, anomaly handling, and a safe release decision before fulfilling the order.
 
-A secondary design principle is phone-first usability for real stores. The intended operator is not necessarily a crypto-native developer; it may be a cashier, store owner, or support staff member who needs a clear "confirmed and matched" signal before handing over goods.
+A secondary design principle is phone-first usability for real stores. The intended operator is not necessarily a crypto-native developer; it may be a cashier, store owner, or support staff member who checks three concrete evidence cards: payment status, order ID/amount match, and receipt evidence. Goods are handed over only when all three are OK.
 
 ## WDK Mapping
 

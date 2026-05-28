@@ -120,39 +120,39 @@
       <section class="column">
         <article class="panel">
           <div class="panel-header">
-            <h2>Storefront mobile operator</h2>
-            <span class="pill ok">Phone-first</span>
-          </div>
-          <div class="panel-body">
-            <div class="operator-note">
-              A shop staff member should be able to confirm payment and release goods from a phone without understanding wallets, RPCs, or block explorers.
-            </div>
-            <div class="summary-grid operator-grid">
-              <div class="metric">
-                <span>Who</span>
-                <strong>Any cashier</strong>
-                <small>Clear next action, no crypto jargon.</small>
-              </div>
-              <div class="metric">
-                <span>Device</span>
-                <strong>Smartphone</strong>
-                <small>Designed for quick in-store checks.</small>
-              </div>
-              <div class="metric">
-                <span>Decision</span>
-                <strong>Release / hold</strong>
-                <small>Only after confirmation and reconciliation pass.</small>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="panel">
-          <div class="panel-header">
             <h2>Merchant release lock</h2>
             <span class="pill" id="release-pill">Locked</span>
           </div>
           <div class="panel-body">
+            <div class="operator-note">
+              The operator checks only the three evidence cards below. If all are OK, goods can be handed over.
+            </div>
+            <div class="release-evidence" aria-label="Release evidence checklist">
+              <div class="evidence-card pending" id="evidence-payment">
+                <div class="evidence-head">
+                  <span>1. Payment status</span>
+                  <em id="evidence-payment-badge">Waiting</em>
+                </div>
+                <strong id="evidence-payment-title">Not confirmed</strong>
+                <small id="evidence-payment-detail">No payment confirmation yet.</small>
+              </div>
+              <div class="evidence-card pending" id="evidence-match">
+                <div class="evidence-head">
+                  <span>2. Order match</span>
+                  <em id="evidence-match-badge">Waiting</em>
+                </div>
+                <strong id="evidence-match-title">Not matched</strong>
+                <small id="evidence-match-detail">Order ID and amount are not reconciled yet.</small>
+              </div>
+              <div class="evidence-card pending" id="evidence-receipt">
+                <div class="evidence-head">
+                  <span>3. Receipt evidence</span>
+                  <em id="evidence-receipt-badge">Waiting</em>
+                </div>
+                <strong id="evidence-receipt-title">No receipt</strong>
+                <small id="evidence-receipt-detail">Transaction evidence appears after confirmation.</small>
+              </div>
+            </div>
             <div class="summary-grid">
               <div class="metric">
                 <span>Reconciliation</span>

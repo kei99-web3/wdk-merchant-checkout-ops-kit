@@ -74,6 +74,9 @@ function testRequiredUiHooks() {
     "simulate-duplicate",
     "expire-intent",
     "fail-payment",
+    "evidence-payment",
+    "evidence-match",
+    "evidence-receipt",
     "release-pill",
     "mapping-count",
     "api-json"

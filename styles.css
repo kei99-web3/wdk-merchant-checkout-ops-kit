@@ -418,10 +418,6 @@ button:disabled {
   margin-bottom: 12px;
 }
 
-.operator-grid .metric strong {
-  font-size: 20px;
-}
-
 .release-ready {
   color: var(--ok);
   font-weight: 800;
@@ -430,6 +426,80 @@ button:disabled {
 .release-blocked {
   color: var(--danger);
   font-weight: 800;
+}
+
+.release-evidence {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.evidence-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 10px;
+}
+
+.evidence-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.evidence-head span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.evidence-head em {
+  min-width: 54px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 850;
+  text-align: center;
+}
+
+.evidence-card strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.evidence-card small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.evidence-card.ok {
+  border-color: #b8dfcb;
+  background: var(--ok-bg);
+}
+
+.evidence-card.ok .evidence-head em {
+  border-color: #42a373;
+  background: #fff;
+  color: var(--ok);
+}
+
+.evidence-card.review {
+  border-color: #e3b1b1;
+  background: var(--danger-bg);
+}
+
+.evidence-card.review .evidence-head em {
+  border-color: #c75656;
+  background: #fff;
+  color: var(--danger);
 }
 
 .ja-demo {

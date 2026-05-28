@@ -17,7 +17,7 @@ For the submission story, see `SUBMISSION_BRIEF.md`.
 
 ## Design Principle
 
-The project treats WDK adoption as an operator workflow, not just a developer integration. A small shop or in-person merchant should be able to check a payment from a smartphone, see a simple release/hold recommendation, and hand over goods only after payment confirmation and reconciliation pass. The interface intentionally avoids exposing staff to wallet internals, RPC details, or block explorer interpretation during normal use.
+The project treats WDK adoption as an operator workflow, not just a developer integration. A small shop or in-person merchant should be able to check a payment from a smartphone, see three simple evidence cards (payment status, order match, and receipt evidence), and hand over goods only when all three are OK. The interface intentionally avoids exposing staff to wallet internals, RPC details, or block explorer interpretation during normal use.
 
 ## Current Status
 
